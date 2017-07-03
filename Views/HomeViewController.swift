@@ -13,12 +13,12 @@ import FirebaseAuth
 class HomeViewController:UIViewController{
     override func viewDidLoad() {
         print("--------")
-        print(Auth.auth().currentUser?.email )
+      //  print(Auth.auth().currentUser?.email )
     }
     
     override func viewDidAppear(_ animated: Bool) {
         print("--------")
 
-        print(Auth.auth().currentUser?.email)
+     //   print(Auth.auth().currentUser?.email)
     }
 }
