@@ -12,7 +12,7 @@
         <!--Item-->
         <scene sceneID="jTV-ap-sf6">
             <objects>
-                <viewController id="2vP-gc-p85" customClass="FindFriendsViewController" sceneMemberID="viewController">
+                <viewController id="2vP-gc-p85" customClass="FindFriendsViewController" customModule="Makestagram" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Yf5-WU-irX"/>
                         <viewControllerLayoutGuide type="bottom" id="Pkh-pg-xtD"/>
@@ -22,7 +22,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" image="tab_find_friends_black" id="PHv-db-cbY"/>
+                    <tabBarItem key="tabBarItem" tag="2" title="Item" image="tab_find_friends_black" id="PHv-db-cbY"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y9G-vX-RAP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -41,7 +41,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" image="tab_plus_black" id="BXC-QX-IXi"/>
+                    <tabBarItem key="tabBarItem" tag="1" title="Item 2" image="tab_plus_black" id="BXC-QX-IXi"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZJG-AN-SuC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -50,7 +50,7 @@
         <!--Item 1-->
         <scene sceneID="mRB-cC-IvU">
             <objects>
-                <viewController id="WCf-Qm-h2X" customClass="HomeViewController" sceneMemberID="viewController">
+                <viewController id="WCf-Qm-h2X" customClass="HomeViewController" customModule="Makestagram" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="0K5-AV-5sE"/>
                         <viewControllerLayoutGuide type="bottom" id="v4X-wS-uDJ"/>
@@ -66,10 +66,10 @@
             </objects>
             <point key="canvasLocation" x="192" y="-581"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Main Tab Bar Controller-->
         <scene sceneID="fhI-07-Ll8">
             <objects>
-                <tabBarController id="kco-LQ-ZHC" sceneMemberID="viewController">
+                <tabBarController id="kco-LQ-ZHC" customClass="MainTabBarController" customModule="Makestagram" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="FdW-ef-LOp">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
