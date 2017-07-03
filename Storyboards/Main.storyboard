@@ -50,7 +50,7 @@
         <!--Item 1-->
         <scene sceneID="mRB-cC-IvU">
             <objects>
-                <viewController id="WCf-Qm-h2X" customClass="HomeViewController" customModule="Makestagram" sceneMemberID="viewController">
+                <viewController id="WCf-Qm-h2X" customClass="HomeViewController" customModule="Makestagram" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="0K5-AV-5sE"/>
                         <viewControllerLayoutGuide type="bottom" id="v4X-wS-uDJ"/>

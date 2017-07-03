@@ -16,7 +16,8 @@ class MainTabBarController: UITabBarController {
         
         // this part of the code can be thought as a closure, a closure can be thought as a function with out a name
         photoHelper.completionHandler = { image in
-            print("handle image")
+           // print("handle image")
+            PostService.create(for: image)
         }
         // we set the MainTabViewController as a delegate
         delegate = self

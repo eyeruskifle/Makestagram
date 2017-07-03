@@ -19,16 +19,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         FirebaseApp.configure()
-     //   configureInitialRootViewController(for: window)
+        configureInitialRootViewController(for: window)
         
         
-    //    let storyboard = UIStoryboard(name: "Login", bundle: .main)
+        //    let storyboard = UIStoryboard(name: "Login", bundle: .main)
         
-    //    if let initialViewController = storyboard.instantiateInitialViewController() {
-    //        window?.rootViewController = initialViewController
-     //       window?.makeKeyAndVisible()
-            
-       // }
+        //    if let initialViewController = storyboard.instantiateInitialViewController() {
+        //        window?.rootViewController = initialViewController
+        //       window?.makeKeyAndVisible()
+        
+        // }
         
         // Override point for customization after application launch.
         
@@ -69,15 +69,16 @@ extension AppDelegate {
             let userData = defaults.object(forKey: Constants.UserDefaults.currentUser) as? Data,
             let user = NSKeyedUnarchiver.unarchiveObject(with: userData) as? User {
             
-            User.setCurrent(user)
+            User.setCurrent(user, writeToUserDefaults: true)
             
             initialViewController = UIStoryboard.initialViewController(for: .main)
         } else {
             initialViewController = UIStoryboard.initialViewController(for: .login)
+            //        }
+            window?.rootViewController = initialViewController
+            window?.makeKeyAndVisible()
+            
         }
-        window?.rootViewController = initialViewController
-        window?.makeKeyAndVisible()
-        
     }
     
     
