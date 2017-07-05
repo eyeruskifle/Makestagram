@@ -9,57 +9,60 @@
 import Foundation
 import UIKit
 import FirebaseAuth
+import Kingfisher
 
 class HomeViewController:UIViewController{
     
+    func configureTableView() {
+        // remove separators for empty cells
+        tableView.tableFooterView = UIView()
+        // remove separators from cells
+        tableView.separatorStyle = .none
+    }
     
     var posts = [Post]()
-    // override func viewDidLoad() {
-    //    print("--------")
-    //  print(Auth.auth().currentUser?.email )
-    
     
     @IBOutlet weak var tableView: UITableView!
     
-    //override func viewDidAppear(_ animated: Bool) {
-    // print("--------")
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureTableView()
         UserService.posts(for: User.current) { (posts) in
             self.posts = posts
             self.tableView.reloadData()
             
         }
-        
-        //   print(Auth.auth().currentUser?.email)
     }
-    
 }
+
 //  UITable view data source
 extension HomeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return posts.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "postImageCell", for: indexPath)
-        cell.backgroundColor = .red
+        let post = posts[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "postImageCell", for: indexPath) as! PostImageCell
+        
+        let imageURL = URL(string: post.imageURL)
+        cell.PostImageView.kf.setImage(with: imageURL)
         
         return cell
-        
+
     }
-    
 }
-
-
 // UITableViewDelegate
 
 extension HomeViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let post = posts[indexPath.row]
-        
-        return post.imageHeight
-    }
+//    func tableView(_tableView: UITableViewCell, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        let post = posts[indexPath.row]
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "PostImageCell", for: indexPath) as! PostImageCell
+//        
+//        let imageURL = URL(string: post.imageURL)
+//        cell.PostImageView.kf.setImage(with: imageURL)
+//        
+//        return cell
+//    }
 }
 
 
