@@ -18,7 +18,6 @@ class FindFriendsCell: UITableViewCell {
     
     weak var delegate: FindFriendsCellDelegate?
     
-    
     @IBOutlet weak var usernameLabel: UILabel!
     
     @IBOutlet weak var followButton: UIButton!

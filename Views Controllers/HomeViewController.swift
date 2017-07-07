@@ -12,35 +12,52 @@ import FirebaseAuth
 import Kingfisher
 
 
+
 class HomeViewController:UIViewController{
+ 
+    var posts = [Post]()
+    let refreshControl = UIRefreshControl ()
+    let timestampFormatter: DateFormatter = {
+    let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .short
+        
+        return dateFormatter
+    }()
     
     func configureTableView() {
         // remove separators for empty cells
         tableView.tableFooterView = UIView()
         // remove separators from cells
         tableView.separatorStyle = .none
+        
+        refreshControl.addTarget(self, action: #selector(reloadTimeline), for: .valueChanged)
+        tableView.addSubview(refreshControl)
+    
+    }
+    func reloadTimeline() {
+        UserService.timeline { (posts) in
+            self.posts = posts
+            
+            if self.refreshControl.isRefreshing{
+                self.refreshControl.endRefreshing()
+            }
+            
+            self.tableView.reloadData()
+        }
     }
     
-    var posts = [Post]()
+    
     
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTableView()
-        UserService.posts(for: User.current) { (posts) in
-            self.posts = posts
-            self.tableView.reloadData()
-            
-        }
+        reloadTimeline()
     }
-    let timestampFormatter: DateFormatter = {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .short
-        
-        return dateFormatter
-    }()
 }
+
+
 
 //  UITable view data source
 extension HomeViewController: UITableViewDataSource {

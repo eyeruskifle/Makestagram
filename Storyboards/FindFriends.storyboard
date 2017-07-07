@@ -62,11 +62,14 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="followButton" destination="Ndv-oa-DIV" id="Qmt-3j-Cue"/>
-                                            <outlet property="followButtonTapped" destination="Ndv-oa-DIV" id="oLV-2L-wgt"/>
                                             <outlet property="usernameLabel" destination="U1V-P0-vB3" id="TQ8-Bk-KVj"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="TcV-O3-pE4" id="Pk2-p4-y62"/>
+                                    <outlet property="delegate" destination="TcV-O3-pE4" id="ENk-1U-TVc"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -79,7 +82,6 @@
                     </view>
                     <navigationItem key="navigationItem" title="FindFriends" id="i4x-zP-QPb"/>
                     <connections>
-                        <outlet property="tabelView" destination="C1y-Kf-mlO" id="0fh-GT-WvV"/>
                         <outlet property="tableView" destination="C1y-Kf-mlO" id="J3u-ux-PCl"/>
                     </connections>
                 </viewController>
